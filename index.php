@@ -5,8 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $tweet = filter_input(INPUT_POST, 'tweet', FILTER_SANITIZE_STRING);
 
   if (add_tweet($tweet)) {
-    echo 'Tweet successful.';
-    header('refresh: 1, url = index.php');
+    header('Location: index.php');
   } else {
     echo 'Tweet failed. Try again.';
   }
