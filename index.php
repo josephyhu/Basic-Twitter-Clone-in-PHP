@@ -2,16 +2,12 @@
 require_once 'inc/bootstrap.php';
 
 $user_id = decodeAuthCookie('auth_user_id');
-$user = findUserById($user_id);
+$tweet = filter_input(INPUT_POST, 'tweet', FILTER_SANITIZE_STRING);
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $tweet = filter_input(INPUT_POST, 'tweet', FILTER_SANITIZE_STRING);
-
-    if (add_tweet($tweet, $user_id)) {
-        header('Location: index.php');
-    } else {
-        $session->getFlashBag()->add('error', 'Unable to add tweet');
-    }
+if (add_tweet($tweet, $user_id)) {
+    header('Location: index.php');
+} else {
+    $session->getFlashBag()->add('error', 'Unable to add tweet');
 }
 
 include 'inc/header.php';
@@ -26,6 +22,7 @@ include 'inc/header.php';
       <?php endif; ?>
       <?php
       foreach (get_tweets() as $item) {
+          $user = findUserById($item['user_id']);
           echo "<h3>" . $user['username'] . "</h3>";
           echo "<p>" . htmlspecialchars($item['tweet']) . "</p>";
       }
