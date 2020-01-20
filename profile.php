@@ -4,6 +4,7 @@ requireAuth();
 
 $pageTitle = " | My Profile";
 $user_id = decodeAuthCookie('auth_user_id');
+$user = findUserById($user_id);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $tweet = filter_input(INPUT_POST, 'tweet', FILTER_SANITIZE_STRING);
@@ -27,7 +28,8 @@ include 'inc/header.php';
       </form>
       <?php
       foreach ($tweets as $item) {
-          echo "<p>" . htmlspecialchars($item['tweet']) . "<p>";
+          echo "<h3>" . $user['username'] . "</h3>";
+          echo "<p>" . htmlspecialchars($item['tweet']) . "</p>";
           echo "<a href='inc/delete_tweet.php?tweet_id=".$item['id'];
           echo "' onclick=\"return confirm('Do you want to delete this tweet?');\"";
           echo "'>Delete</a>";
