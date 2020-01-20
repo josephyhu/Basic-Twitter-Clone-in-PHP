@@ -12,19 +12,21 @@ if (add_tweet($tweet, $user_id)) {
 
 include 'inc/header.php';
 ?>
-    <main>
-      <?php if (isAuthenticated()) : ?>
-      <form action="index.php" method="post">
-        <textarea name="tweet" cols="40" rows="4" maxlength="300" placeholder="300 characters max" required></textarea>
-        <input type="submit" value="Tweet">
-      </form>
-      <?php endif; ?>
-      <?php
-      foreach (get_tweets() as $item) {
-          $user = findUserById($item['user_id']);
-          echo "<h3><a href='user.php?id=" . $item['user_id'] . "'>" . $user['username'] . "</a></h3>";
-          echo "<p>" . htmlspecialchars($item['tweet']) . "</p>";
-      }
-      ?>
-    </main>
+    <?php if (isAuthenticated()) : ?>
+    <form action="index.php" method="post">
+      <textarea name="tweet" cols="40" rows="4" maxlength="300" placeholder="300 characters max" required></textarea>
+      <input type="submit" value="Tweet">
+    </form>
+    <?php endif; ?>
+    <?php
+    foreach (get_tweets() as $item) {
+        $user = findUserById($item['user_id']);
+            if ($user['id'] == $user_id) {
+                echo "<h3><a href='profile.php'>" . $user['username'] . "</a></h3>";
+            } else {
+                echo "<h3><a href='user.php?id=" . $item['user_id'] . "'>" . $user['username'] . "</a></h3>";
+            }
+            echo "<p>" . htmlspecialchars($item['tweet']) . "</p>";
+    }
+    ?>
 <?php include 'inc/footer.php'; ?>

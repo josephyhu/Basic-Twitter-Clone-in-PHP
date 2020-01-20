@@ -9,11 +9,9 @@ $pageTitle = " | " . $user['username'];
 
 include 'inc/header.php';
 ?>
-    <main>
-      <?php
-      foreach ($tweets as $item) {
-          echo "<p>" . htmlspecialchars($item['tweet']) . "</p>";
-      }
-      ?>
-    </main>
+    <?php
+    foreach ($tweets as $item) {
+        echo "<p>" . htmlspecialchars($item['tweet']) . "</p>";
+    }
+    ?>
 <?php include 'inc/footer.php'; ?>
