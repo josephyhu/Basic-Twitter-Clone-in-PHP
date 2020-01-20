@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $tweet = filter_input(INPUT_POST, 'tweet', FILTER_SANITIZE_STRING);
 
     if (add_tweet($tweet, $user_id)) {
-        header('Location: index.php');
+        header('Location: profile.php');
     } else {
         $session->getFlashBag()->add('error', 'Unable to add tweet');
     }
@@ -20,7 +20,7 @@ $tweets = get_tweets_by_user_id($user_id);
 include 'inc/header.php';
 ?>
     <main>
-      <form action="index.php" method="post">
+      <form action="profile.php" method="post">
         <label for="tweet">Tweet</label><br>
         <textarea id="tweet" name="tweet" cols="40" rows="4" maxlength="300" placeholder="300 characters max" required></textarea>
         <input type="submit" value="Tweet">
