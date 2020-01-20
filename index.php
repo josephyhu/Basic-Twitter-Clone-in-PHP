@@ -15,8 +15,7 @@ include 'inc/header.php';
     <main>
       <?php if (isAuthenticated()) : ?>
       <form action="index.php" method="post">
-        <label for="tweet">Tweet</label><br>
-        <textarea id="tweet" name="tweet" cols="40" rows="4" maxlength="300" placeholder="300 characters max" required></textarea>
+        <textarea name="tweet" cols="40" rows="4" maxlength="300" placeholder="300 characters max" required></textarea>
         <input type="submit" value="Tweet">
       </form>
       <?php endif; ?>
