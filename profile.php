@@ -24,5 +24,4 @@ require_once 'inc/header.php';
       }
       ?>
     </main>
-
 <?php require_once 'inc/footer.php'; ?>
