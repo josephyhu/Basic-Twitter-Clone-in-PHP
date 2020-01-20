@@ -7,8 +7,8 @@
     <header>
       <h1>A Basic Twitter-Clone<?php echo $pageTitle; ?></h1>
       <nav>
-        <?php if (isAuthenticated()) : ?>
         <a href="index.php">Home</a>
+        <?php if (isAuthenticated()) : ?>
         <a href="profile.php">My Profile</a>
         <a href="inc/doLogout.php">Logout</a>
         <?php else : ?>

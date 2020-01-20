@@ -23,7 +23,7 @@ include 'inc/header.php';
       <?php
       foreach (get_tweets() as $item) {
           $user = findUserById($item['user_id']);
-          echo "<h3>" . $user['username'] . "</h3>";
+          echo "<h3><a href='user.php?id=" . $item['user_id'] . "'>" . $user['username'] . "</a></h3>";
           echo "<p>" . htmlspecialchars($item['tweet']) . "</p>";
       }
       ?>
