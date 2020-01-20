@@ -17,7 +17,6 @@ include 'inc/header.php';
       <textarea name="tweet" cols="40" rows="4" maxlength="300" placeholder="300 characters max" required></textarea>
       <input type="submit" value="Tweet">
     </form>
-    <?php endif; ?>
     <?php
     foreach (get_tweets() as $item) {
         $user = findUserById($item['user_id']);
@@ -29,4 +28,5 @@ include 'inc/header.php';
             echo "<p>" . htmlspecialchars($item['tweet']) . "</p>";
     }
     ?>
+    <?php endif; ?>
 <?php include 'inc/footer.php'; ?>
