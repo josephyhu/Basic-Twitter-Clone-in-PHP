@@ -10,13 +10,17 @@ $url="../index.php";
 
 switch ($action) {
 case "add":
-    add_tweet($tweet, $user_id);
+    if (add_tweet($tweet, $user_id)) {
+        $session->getFlashBag()->add('success', 'Successfully added tweet');
+    } else {
+        $session->getFlashBag()->add('error', 'Unable to add tweet');
+    }
     break;
 case "delete":
     if (delete_tweet($tweet_id)) {
-        $session->getFlashBag()->add('success', 'Tweet deleted');
+        $session->getFlashBag()->add('success', 'Successfully deleted tweet');
     } else {
-        $session->getFlashBag()->add('error', 'Could not delete tweet');
+        $session->getFlashBag()->add('error', 'Unable to delete tweet');
     }
     break;
 }
