@@ -3,7 +3,7 @@ require_once 'inc/bootstrap.php';
 
 $pageTitle = " | Login";
 
-require_once 'inc/header.php';
+include 'inc/header.php';
 ?>
       <form action="/inc/doLogin.php" method="post">
         <label for="inputUsername">Username</label>
@@ -12,4 +12,4 @@ require_once 'inc/header.php';
         <input type="password" id="inputPassword" name="password" required>
         <input type="submit" value="Sign In">
       </form>
-<?php require_once 'inc/footer.php';
+<?php include 'inc/footer.php';

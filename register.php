@@ -3,7 +3,7 @@ require_once 'inc/bootstrap.php';
 
 $pageTitle = " | Register";
 
-require_once 'inc/header.php';
+include 'inc/header.php';
 ?>
       <form action="/inc/doRegister.php" method="post">
         <label for="inputUsername">Username</label>
@@ -14,4 +14,4 @@ require_once 'inc/header.php';
         <input type="password" id="inputPassword" name="confirm_password" required>
         <input type="submit" value="Register">
       </form>
-<?php require_once 'inc/footer.php'; ?>
+<?php include 'inc/footer.php'; ?>
