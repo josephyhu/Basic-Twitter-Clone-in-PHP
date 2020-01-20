@@ -4,7 +4,7 @@ function findUserByUsername($username)
     global $db;
 
     try {
-        $sql = 'SELECT * FROM users WHERE userame = ?';
+        $sql = 'SELECT * FROM users WHERE username = ?';
         $results = $db->prepare($sql);
         $results->bindParam(1, $username);
         $results->execute();
