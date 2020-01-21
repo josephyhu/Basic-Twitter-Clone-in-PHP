@@ -13,6 +13,23 @@ function requireAuth()
     }
 }
 
+function isAdmin()
+{
+    if (!isAuthenticated()) {
+        return false;
+    }
+    return decodeAuthCookie('auth_roles') === 1;
+}
+
+function requireAdmin()
+{
+    if (!isAdmin()) {
+        global $session;
+        $session->getFlashBag() -> add('error', 'You must be an admin');
+        redirect('/index.php');
+    }
+}
+
 function getAuthenticatedUser()
 {
     return findUserById(decodeAuthCookie('auth_user_id'));
@@ -29,7 +46,8 @@ function saveUserData($user)
         'sub' => (int) $user['id'],
         'exp' => $expTime,
         'iat' => time(),
-        'nbf' => time()
+        'nbf' => time(),
+        'auth_roles' => (int) $user['role_id']
     ],
     getenv("SECRET_KEY"),
     'HS256'

@@ -1,4 +1,18 @@
 <?php
+function getAllUsers()
+{
+    global $db;
+
+    try {
+        $sql = 'SELECT * FROM users ORDER BY id DESC';
+        $results = $db->prepare($sql);
+        $results->execute();
+    } catch (Exception $e) {
+        echo "Error: " . $e->getMessage() . "<br>";
+    }
+    return $results->fetchAll();
+}
+
 function findUserByUsername($username)
 {
     global $db;
@@ -34,7 +48,7 @@ function createUser($username, $password)
     global $db;
 
     try {
-        $sql = 'INSERT INTO users (username, password) VALUES (?, ?)';
+        $sql = 'INSERT INTO users (username, password, role_id) VALUES (?, ?, 0)';
         $results = $db->prepare($sql);
         $results->bindParam(1, $username);
         $results->bindParam(2, $password);
@@ -43,4 +57,20 @@ function createUser($username, $password)
     } catch (Exception $e) {
         echo "Error: " . $e->getMessage() . "<br>";
     }
+}
+
+function delete_user($user_id)
+{
+    global $db;
+
+    try {
+        $sql = 'DELETE FROM users WHERE id = ?';
+        $results = $db->prepare($sql);
+        $results->bindParam(1, $user_id);
+        $results->execute();
+    } catch (Exception $e) {
+        echo "Error: " . $e->getMessage() . "<br>";
+        return false;
+    }
+    return true;
 }
