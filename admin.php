@@ -16,7 +16,7 @@ include 'inc/header.php';
             if ($user['role_id'] == 0 || isOwner()) {
                 echo "<a href='inc/delete_user.php?id=".$user['id'];
                 echo "' onclick=\"return confirm('Do you want to delete this user?');\"";
-                echo "'>Delete User</a>";
+                echo ">Delete User</a>";
             }
         } else {
             echo "<h3><a href='profile.php'>" . $user['username'] . "</a></h3>";

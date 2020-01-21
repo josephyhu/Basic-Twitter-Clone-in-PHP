@@ -91,3 +91,19 @@ function delete_user($user_id)
     }
     return true;
 }
+
+function delete_all_users()
+{
+    global $db;
+
+    try {
+        $sql = 'DELETE FROM users WHERE role_id<:role_id';
+        $results = $db->prepare($sql);
+        $results->bindValue('role_id', 2);
+        $results->execute();
+    } catch (Exception $e) {
+        echo "Error: " . $e->getMessage() . "<br>";
+        return false;
+    }
+    return true;
+}

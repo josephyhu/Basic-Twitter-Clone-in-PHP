@@ -8,6 +8,9 @@
       <h1>A Basic Twitter-Clone<?php echo $pageTitle; ?></h1>
       <nav>
         <a href="index.php">Home</a>
+        <?php if (isOwner()) : ?>
+        <a href="owner.php">Owner</a>
+        <?php endif; ?>
         <?php if (isAdmin()) : ?>
         <a href="admin.php">Admin</a>
         <?php endif; ?>

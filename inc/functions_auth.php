@@ -25,7 +25,7 @@ function requireAdmin()
 {
     if (!isAdmin()) {
         global $session;
-        $session->getFlashBag() -> add('error', 'You must be an admin');
+        $session->getFlashBag()->add('error', 'You must be an admin');
         redirect('/index.php');
     }
 }
@@ -36,6 +36,15 @@ function isOwner()
         return false;
     }
     return decodeAuthCookie('auth_roles') === 2;
+}
+
+function requireOwner()
+{
+    if (!isOwner()) {
+        global $session;
+        $session->getFlashBag()->add('error', 'You must be the owner');
+        redirect('/index.php');
+    }
 }
 
 function getAuthenticatedUser()

@@ -4,5 +4,9 @@ requireAdmin();
 
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
-delete_user($id);
+if (delete_user($id)) {
+    $session->getFlashBag()->add('success', 'Successfully deleted user');
+} else {
+    $session->getFlashBag()->add('error', 'Unable to delete user');
+}
 header('Location: ../index.php');

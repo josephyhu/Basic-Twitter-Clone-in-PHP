@@ -79,3 +79,18 @@ function delete_tweet($tweet_id)
     }
     return true;
 }
+
+function delete_all_tweets()
+{
+    global $db;
+
+    try {
+        $sql = 'DELETE FROM tweets';
+        $results = $db->prepare($sql);
+        $results->execute();
+    } catch (Exception $e) {
+        echo "Error: " . $e->getMessage() . "<br>";
+        return false;
+    }
+    return true;
+}
