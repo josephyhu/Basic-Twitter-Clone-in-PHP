@@ -18,7 +18,7 @@ function isAdmin()
     if (!isAuthenticated()) {
         return false;
     }
-    return decodeAuthCookie('auth_roles') === 1;
+    return decodeAuthCookie('auth_roles') >= 1;
 }
 
 function requireAdmin()
@@ -28,6 +28,14 @@ function requireAdmin()
         $session->getFlashBag() -> add('error', 'You must be an admin');
         redirect('/index.php');
     }
+}
+
+function isOwner()
+{
+    if (!isAdmin()) {
+        return false;
+    }
+    return decodeAuthCookie('auth_roles') === 2;
 }
 
 function getAuthenticatedUser()
