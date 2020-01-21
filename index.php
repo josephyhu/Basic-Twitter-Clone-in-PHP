@@ -28,5 +28,7 @@ include 'inc/header.php';
             echo "<p>" . htmlspecialchars($item['tweet']) . "</p>";
     }
     ?>
+    <?php else : ?>
+    <p>Please <a href="register.php">register</a> and <a href="login.php">login</a> to see the tweets and add your own tweet.</p>
     <?php endif; ?>
 <?php include 'inc/footer.php'; ?>
