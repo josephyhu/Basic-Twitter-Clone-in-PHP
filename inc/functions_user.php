@@ -13,6 +13,23 @@ function getAllUsers()
     return $results->fetchAll();
 }
 
+function setOwner()
+{
+    global $db;
+
+    try {
+        $sql = 'UPDATE users SET role_id=:role_id WHERE id=:id';
+        $results = $db->prepare($sql);
+        $results->bindValue('id', 1);
+        $results->bindValue('role_id', 2);
+        $results->execute();
+    } catch (Exception $e) {
+        echo "Error: " . $e->getMessage() . "<br>";
+        return false;
+    }
+    return true;
+}
+
 function findUserByUsername($username)
 {
     global $db;

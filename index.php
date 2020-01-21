@@ -2,6 +2,7 @@
 require_once 'inc/bootstrap.php';
 
 $user_id = decodeAuthCookie('auth_user_id');
+setOwner();
 $tweet = filter_input(INPUT_POST, 'tweet', FILTER_SANITIZE_STRING);
 
 if (add_tweet($tweet, $user_id)) {
