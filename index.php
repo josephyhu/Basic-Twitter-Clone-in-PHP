@@ -6,11 +6,8 @@ setOwner();
 $tweet = filter_input(INPUT_POST, 'tweet', FILTER_SANITIZE_STRING);
 
 if (!empty($tweet)) {
-    if (add_tweet($tweet, $user_id)) {
-        header('Location: index.php');
-    } else {
-        $session->getFlashBag()->add('error', 'Unable to add tweet');
-    }
+    add_tweet($tweet, $user_id)) {
+    header('Location: index.php');
 }
 
 include 'inc/header.php';
