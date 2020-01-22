@@ -6,10 +6,12 @@ $pageTitle = " | My Profile";
 $user_id = decodeAuthCookie('auth_user_id');
 $tweet = filter_input(INPUT_POST, 'tweet', FILTER_SANITIZE_STRING);
 
-if (add_tweet($tweet, $user_id)) {
-    header('Location: profile.php');
-} else {
-    $session->getFlashBag()->add('error', 'Unable to add tweet');
+if (!empty($tweet)) {
+    if (add_tweet($tweet, $user_id)) {
+        header('Location: profile.php');
+    } else {
+        $session->getFlashBag()->add('error', 'Unable to add tweet');
+    }
 }
 
 $tweets = get_tweets_by_user_id($user_id);
