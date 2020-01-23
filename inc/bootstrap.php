@@ -33,3 +33,9 @@ function redirect($path, $extra = []) {
     $response->send();
     exit;
 }
+
+foreach ($session->getFlashBag()->all() as $type => $messages) {
+    foreach ($messages as $message) {
+        echo '<div class="flash-'.$type.'">'.$message.'</div>';
+    }
+}

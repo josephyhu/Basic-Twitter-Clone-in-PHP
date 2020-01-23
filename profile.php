@@ -7,7 +7,7 @@ $user_id = decodeAuthCookie('auth_user_id');
 $tweet = filter_input(INPUT_POST, 'tweet', FILTER_SANITIZE_STRING);
 
 if (!empty($tweet)) {
-    add_tweet($tweet, $user_id)) {
+    add_tweet($tweet, $user_id);
     header('Location: profile.php');
 }
 
