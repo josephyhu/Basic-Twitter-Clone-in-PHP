@@ -3,6 +3,7 @@
 Pretty self-explanatory if you are using or have used Twitter. I will list the different user roles and what each role can do.
 
 Owner (I have set it so that the role of the user with id of 1 is automatically set to owner):
+
 username: owner, password: owner
 * Add tweets.
 * Remove their own tweets individually.
@@ -12,6 +13,7 @@ username: owner, password: owner
 * Remove all users (except themselves) (in the Owner Panel).
 
 Admin:
+
 username: admin, password: admin
 * Add tweets.
 * Remove their own tweets individually.
