@@ -13,6 +13,12 @@ include 'inc/header.php';
     foreach ($users as $user) {
         if ($user['id'] != $user_id) {
             echo "<h3><a href='user.php?id=" . $user['id'] . "'>" . $user['username'] . "</a></h3>";
+            if ($user['role_id'] == 0) {
+                echo "<a href='inc/change_role.php?id=".$user['id']."&role_id=1'>Promote User</a> ";
+            }
+            if ($user['role_id'] == 1 && isOwner()) {
+                echo "<a href='inc/change_role.php?id=".$user['id']."&role_id=0'>Demote User</a> ";
+            }
             if ($user['role_id'] == 0 || isOwner()) {
                 echo "<a href='inc/delete_user.php?id=".$user['id'];
                 echo "' onclick=\"return confirm('Do you want to delete this user?');\"";

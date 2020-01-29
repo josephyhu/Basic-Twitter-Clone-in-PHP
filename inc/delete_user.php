@@ -9,4 +9,4 @@ if (delete_user($id)) {
 } else {
     $session->getFlashBag()->add('error', 'Unable to delete user');
 }
-header('Location: ../index.php');
+redirect('/admin.php');

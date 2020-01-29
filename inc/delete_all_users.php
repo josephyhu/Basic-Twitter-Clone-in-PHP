@@ -7,5 +7,4 @@ if (delete_all_users()) {
 } else {
     $session->getFlashBag()->add('error', 'Unable to delete all users');
 }
-
-header('Location: ../index.php');
+redirect('/index.php');

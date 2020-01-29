@@ -7,5 +7,4 @@ if (delete_all_tweets()) {
 } else {
     $session->getFlashBag()->add('error', 'Unable to delete all tweets');
 }
-
-header('Location: ../index.php');
+redirect('/index.php');

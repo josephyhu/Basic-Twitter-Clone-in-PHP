@@ -9,5 +9,4 @@ if (delete_tweet($tweet_id)) {
 } else {
     $session->getFlashBag()->add('error', 'Unable to delete tweet');
 }
-
-header('Location: ../index.php');
+redirect('/index.php');

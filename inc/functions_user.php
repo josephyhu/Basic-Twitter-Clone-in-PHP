@@ -30,6 +30,23 @@ function setOwner()
     return true;
 }
 
+function changeRole($user_id, $role_id)
+{
+    global $db;
+
+    try {
+        $sql = 'UPDATE users SET role_id=:role_id WHERE id=:id';
+        $results = $db->prepare($sql);
+        $results->bindParam('id', $user_id);
+        $results->bindParam('role_id', $role_id);
+        $results->execute();
+    } catch (Exception $e) {
+        echo "Error: " . $e->getMessage() . "<br>";
+        return false;
+    }
+    return true;
+}
+
 function findUserByUsername($username)
 {
     global $db;
