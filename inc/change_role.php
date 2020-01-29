@@ -2,8 +2,12 @@
 require_once 'bootstrap.php';
 requireAdmin();
 
-if (changeRole(request()->get('id'), request()->get('role_id'))) {
-    $session->getFlashBag()->add('success', 'Successfully promoted/demoted user');
+$user = changeRole(request()->get('id'), request()->get('role_id'));
+
+if ($user['role_id'] == 1) {
+    $session->getFlashBag()->add('success', 'Successfully promoted user to admin');
+} elseif ($user['role_id'] == 0) {
+    $session->getFlashBag()->add('success', 'Successfully demoted admin to user');
 } else {
     $session->getFlashBag()->add('error', 'Unable to promote/demote user');
 }

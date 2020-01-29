@@ -44,7 +44,7 @@ function changeRole($user_id, $role_id)
         echo "Error: " . $e->getMessage() . "<br>";
         return false;
     }
-    return true;
+    return findUserById($user_id);
 }
 
 function findUserByUsername($username)
