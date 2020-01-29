@@ -8,6 +8,8 @@ username: owner, password: owner
 * Add tweets.
 * Remove their own tweets individually.
 * Remove other people's tweets individually.
+* Promote user to admin.
+* Demote admin to user.
 * Remove users (including admins) individually (in the Admin Panel).
 * Remove all tweets (in the Owner Panel).
 * Remove all users (except themselves) (in the Owner Panel).
@@ -18,6 +20,7 @@ username: admin, password: admin
 * Add tweets.
 * Remove their own tweets individually.
 * Remove other people's tweets individually.
+* Promote user to admin.
 * Remove users (except admins and the owner) individually (in the Admin Panel).
 
 User:
@@ -29,5 +32,4 @@ Now, I will explain what none of the roles can do.
 * Follow other users.
 * Favorite and retweet.
 * Change password.
-* Promote/demote users to admins/owner.
 * etc.
