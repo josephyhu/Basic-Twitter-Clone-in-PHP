@@ -27,7 +27,7 @@ User:
 * Add tweets.
 * Remove their own tweets individually.
 
-Now, I will explain what none of the roles can do.
+Now, I will list what none of the roles can do.
 
 * Follow other users.
 * Favorite and retweet.
