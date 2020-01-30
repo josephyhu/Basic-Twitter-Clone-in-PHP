@@ -14,7 +14,7 @@ include 'inc/header.php';
     <?php
     foreach ($tweets as $item) {
         echo "<p>" . htmlspecialchars($item['tweet']) . "</p>";
-        if (isAdmin() && $user_id != 2 || isOwner()) {
+        if (isAdmin() && $user_id == 0 || isOwner()) {
             echo "<a href='inc/delete_tweet.php?tweet_id=".$item['id'];
             echo "' onclick=\"return confirm('Do you want to delete this tweet?');\"";
             echo ">Delete Tweet</a>";
