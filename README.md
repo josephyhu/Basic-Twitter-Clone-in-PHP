@@ -19,9 +19,9 @@ Admin:
 username: admin, password: admin
 * Add tweets.
 * Remove their own tweets individually.
-* Remove other people's tweets individually.
+* Remove other people's tweets (except other admins' and the owner's) individually.
 * Promote user to admin.
-* Remove users (except admins and the owner) individually (in the Admin Panel).
+* Remove users (except other admins and the owner) individually (in the Admin Panel).
 
 User:
 * Add tweets.
